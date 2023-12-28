@@ -131,9 +131,6 @@ namespace com.dataisinteresting.togglecameras
         {
             Logger.Instance.LogMessage(TracingLevel.ERROR, $"Inner Exception: {e.InnerException.Message}");
         }
-
-        // Show alert on Stream Deck to indicate error
-        await Connection.ShowAlert();
     }
 
     private void HandleException(Exception e)
@@ -146,9 +143,6 @@ namespace com.dataisinteresting.togglecameras
         {
             Logger.Instance.LogMessage(TracingLevel.ERROR, $"Inner Exception: {e.InnerException.Message}");
         }
-
-        // Show alert on Stream Deck to indicate error
-        await Connection.ShowAlert();
     }
         private Task SaveSettings()
     {
