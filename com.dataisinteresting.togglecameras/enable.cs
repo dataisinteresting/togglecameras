@@ -116,7 +116,7 @@ namespace com.dataisinteresting.togglecameras
         
     }
 
-    private void HandleException(ManagementException e)
+    private async Task HandleException(ManagementException e)
     {
         Logger.Instance.LogMessage(TracingLevel.ERROR, $"ManagementException: {e.Message}, ErrorCode: {e.ErrorCode}");
         Logger.Instance.LogMessage(TracingLevel.ERROR, $"Stack Trace: {e.StackTrace}");
@@ -130,7 +130,7 @@ namespace com.dataisinteresting.togglecameras
         await Connection.ShowAlert();
     }
 
-    private void HandleException(Exception e)
+    private async Task HandleException(Exception e)
     {
         // Handle other exceptions here
         Logger.Instance.LogMessage(TracingLevel.ERROR, $"Generic Exception: {e.Message}");
