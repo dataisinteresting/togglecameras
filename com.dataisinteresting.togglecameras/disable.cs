@@ -60,28 +60,20 @@ namespace com.dataisinteresting.togglecameras
     public override async void KeyPressed(KeyPayload payload)
     {
         Logger.Instance.LogMessage(TracingLevel.INFO, "Key Pressed");
+
         try
         {
             DisableAllCameras();
         }
 
         catch (ManagementException e)
-        {
-
-            Logger.Instance.LogMessage(TracingLevel.ERROR, $"ManagementException: {e.Message}, ErrorCode: {e.ErrorCode}");
-
-            // Show alert on Stream Deck to indicate error
-            await Connection.ShowAlert();
-        }
-
-        catch (Exception e)
-
-        {
-            Logger.Instance.LogMessage(TracingLevel.ERROR, e.ToString());
-
-            // Show alert on Stream Deck to indicate error
-            await Connection.ShowAlert();
+            {
+                HandleException(e);
             }
+        catch (Exception e)
+        {
+                HandleException(e);
+        }
     }
 
     public override void KeyReleased(KeyPayload payload) { }
@@ -122,13 +114,28 @@ namespace com.dataisinteresting.togglecameras
         }
         
     }
-    private Task SaveSettings()
+
+    private void HandleException(Exception e)
+    {
+        Logger.Instance.LogMessage(TracingLevel.ERROR, e.ToString());
+        Logger.Instance.LogMessage(TracingLevel.ERROR, $"Stack Trace: {e.StackTrace}");
+
+        if (e.InnerException != null)
+        {
+            Logger.Instance.LogMessage(TracingLevel.ERROR, $"Inner Exception: {e.InnerException.Message}");
+        }
+
+        // Show alert on Stream Deck to indicate error
+        await Connection.ShowAlert();
+    }
+        private Task SaveSettings()
     {
         return Connection.SetSettingsAsync(JObject.FromObject(settings));
     }
 
     #endregion
 }
+
 }
 
 
