@@ -115,9 +115,9 @@ namespace com.dataisinteresting.togglecameras
         
     }
 
-    private void HandleException(Exception e)
+    private void HandleException(ManagementException e)
     {
-        Logger.Instance.LogMessage(TracingLevel.ERROR, e.ToString());
+        Logger.Instance.LogMessage(TracingLevel.ERROR, $"ManagementException: {e.Message}, ErrorCode: {e.ErrorCode}");
         Logger.Instance.LogMessage(TracingLevel.ERROR, $"Stack Trace: {e.StackTrace}");
 
         if (e.InnerException != null)
@@ -128,7 +128,24 @@ namespace com.dataisinteresting.togglecameras
         // Show alert on Stream Deck to indicate error
         await Connection.ShowAlert();
     }
-        private Task SaveSettings()
+
+    private void HandleException(Exception e)
+    {
+        // Handle other exceptions here
+        Logger.Instance.LogMessage(TracingLevel.ERROR, $"Generic Exception: {e.Message}");
+        Logger.Instance.LogMessage(TracingLevel.ERROR, $"Stack Trace: {e.StackTrace}");
+
+        if (e.InnerException != null)
+        {
+            Logger.Instance.LogMessage(TracingLevel.ERROR, $"Inner Exception: {e.InnerException.Message}");
+        }
+
+        // Show alert on Stream Deck to indicate error
+        await Connection.ShowAlert();
+    }
+
+    }
+    private Task SaveSettings()
     {
         return Connection.SetSettingsAsync(JObject.FromObject(settings));
     }

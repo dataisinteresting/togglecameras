@@ -116,9 +116,24 @@ namespace com.dataisinteresting.togglecameras
         
     }
 
+    private void HandleException(ManagementException e)
+    {
+        Logger.Instance.LogMessage(TracingLevel.ERROR, $"ManagementException: {e.Message}, ErrorCode: {e.ErrorCode}");
+        Logger.Instance.LogMessage(TracingLevel.ERROR, $"Stack Trace: {e.StackTrace}");
+
+        if (e.InnerException != null)
+        {
+            Logger.Instance.LogMessage(TracingLevel.ERROR, $"Inner Exception: {e.InnerException.Message}");
+        }
+
+        // Show alert on Stream Deck to indicate error
+        await Connection.ShowAlert();
+    }
+
     private void HandleException(Exception e)
     {
-        Logger.Instance.LogMessage(TracingLevel.ERROR, e.ToString());
+        // Handle other exceptions here
+        Logger.Instance.LogMessage(TracingLevel.ERROR, $"Generic Exception: {e.Message}");
         Logger.Instance.LogMessage(TracingLevel.ERROR, $"Stack Trace: {e.StackTrace}");
 
         if (e.InnerException != null)
