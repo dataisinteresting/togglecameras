@@ -85,6 +85,8 @@ namespace com.dataisinteresting.togglecameras
         {
             ToggleCamerasState();
 
+            UpdateIcon();
+
             // Show a checkmark icon to user to indicate that the action was successful
             await Connection.ShowOk();
         }
@@ -175,7 +177,16 @@ namespace com.dataisinteresting.togglecameras
         }
 
     }
-    private void HandleException(ManagementException e)
+
+
+    private void UpdateIcon()
+    {
+        string iconPath = settings.camerasEnabled ? "Images/greentogglekey@2x.png" : "Images/redtogglekey@2x.png";
+        Connection.SetImageAsync(iconPath);
+    }
+
+
+        private void HandleException(ManagementException e)
     {
         Logger.Instance.LogMessage(TracingLevel.ERROR, $"ManagementException: {e.Message}, ErrorCode: {e.ErrorCode}");
         Logger.Instance.LogMessage(TracingLevel.ERROR, $"Stack Trace: {e.StackTrace}");
