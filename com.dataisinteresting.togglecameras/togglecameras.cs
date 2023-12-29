@@ -3,11 +3,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Management;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace com.dataisinteresting.togglecameras
@@ -41,9 +36,7 @@ namespace com.dataisinteresting.togglecameras
 
         private PluginSettings settings;
 
-        #endregion
-
-        
+        #endregion 
     public togglecameras(SDConnection connection, InitialPayload payload) : base(connection, payload)
     {
         if (payload.Settings == null || payload.Settings.Count == 0)
