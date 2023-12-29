@@ -84,7 +84,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="!!README!!.txt" />
+    <Content Include="Images\greentogglekey%402x.png" />
+    <Content Include="Images\greentogglekey.png" />
     <Content Include="Images\plugin.png" />
     <Content Include="Images\plugin%402x.png" />
     <Content Include="Images\redtogglekey%402x.png" />
