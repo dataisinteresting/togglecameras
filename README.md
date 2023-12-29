@@ -43,7 +43,7 @@ Download the plugin from the [Elgato Marketplace](https://marketplace.elgato.com
 
 4. The plugin is now ready for use. Press your assigned button to enable or disable your cameras; you can verify their status by checking the Device Manager.
 
-![usage](usage.gif)
+    ![usage](usage.gif)
 
 ### Important Notes: 
 
