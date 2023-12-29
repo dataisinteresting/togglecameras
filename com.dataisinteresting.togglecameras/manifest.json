@@ -2,7 +2,7 @@
   "Actions": [
     {
       "Icon": "Images/togglekey",
-      "Name": "ToggleCameras",
+      "Name": "Toggle Cameras",
       "States": [
         {
           "Image": "Images/togglekey",
