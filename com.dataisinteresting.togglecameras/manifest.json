@@ -7,7 +7,7 @@
         {
           "Image": "Images/togglekey",
           "TitleAlignment": "bottom",
-          "FontSize": "12"
+          "FontSize": "10"
         }
       ],
       "SupportedInMultiActions": false,

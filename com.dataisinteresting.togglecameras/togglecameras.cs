@@ -182,7 +182,10 @@ namespace com.dataisinteresting.togglecameras
     private void UpdateIcon()
     {
         string iconPath = settings.camerasEnabled ? "Images/greentogglekey@2x.png" : "Images/redtogglekey@2x.png";
+        string iconTitle = settings.camerasEnabled ? "Enabled" : "Disabled";
+
         Connection.SetImageAsync(iconPath);
+        Connection.SetTitleAsync(iconTitle);
     }
 
 
