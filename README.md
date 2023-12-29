@@ -41,7 +41,9 @@ Download the plugin from the [Elgato Marketplace](https://marketplace.elgato.com
 
 3. After installation, find the Toggle Cameras action in the Stream Deck interface and drag it to your preferred button. 
 
-4. The plugin is now ready for use. Press your assigned button to enable or disable your cameras; you can verify their status by checking the Device Manager. 
+4. The plugin is now ready for use. Press your assigned button to enable or disable your cameras; you can verify their status by checking the Device Manager.
+
+![usage](usage.gif)
 
 ### Important Notes: 
 
