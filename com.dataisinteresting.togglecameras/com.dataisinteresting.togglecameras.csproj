@@ -71,8 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="disable.cs" />
-    <Compile Include="enable.cs" />
+    <Compile Include="togglecameras.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,10 +85,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="!!README!!.txt" />
-    <Content Include="Images\off%402x.png" />
-    <Content Include="Images\off.png" />
-    <Content Include="Images\on%402x.png" />
-    <Content Include="Images\on.png" />
+    <Content Include="Images\plugin.png" />
+    <Content Include="Images\plugin%402x.png" />
+    <Content Include="Images\redtogglekey%402x.png" />
+    <Content Include="Images\redtogglekey.png" />
+    <Content Include="Images\toggleaction%402x.png" />
+    <Content Include="Images\toggleaction.png" />
+    <Content Include="Images\togglecategory%402x.png" />
+    <Content Include="Images\togglecategory.png" />
+    <Content Include="Images\togglekey%402x.png" />
+    <Content Include="Images\togglekey.png" />
     <Content Include="PropertyInspector\PluginActionPI.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

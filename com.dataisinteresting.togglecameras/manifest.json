@@ -1,45 +1,30 @@
 {
   "Actions": [
     {
-      "Icon": "Images/off",
-      "Name": "DisableCameras",
+      "Icon": "Images/togglekey",
+      "Name": "ToggleCameras",
       "States": [
         {
-          "Image": "Images/off",
+          "Image": "Images/togglekey",
           "TitleAlignment": "bottom",
           "FontSize": "12"
         }
       ],
       "SupportedInMultiActions": false,
-      "Tooltip": "Disables all detected camera devices.",
-      "UUID": "com.dataisinteresting.togglecameras.disablecameras",
-      "PropertyInspectorPath": "PropertyInspector/PluginActionPI.html"
-    },
-    {
-      "Icon": "Images/on",
-      "Name": "EnableCameras",
-      "States": [
-        {
-          "Image": "Images/on",
-          "TitleAlignment": "bottom",
-          "FontSize": "12"
-        }
-      ],
-      "SupportedInMultiActions": false,
-      "Tooltip": "Enables all detected camera devices.",
-      "UUID": "com.dataisinteresting.togglecameras.enablecameras",
+      "Tooltip": "Toggles the state of all detected camera devices.",
+      "UUID": "com.dataisinteresting.togglecameras.togglecameras",
       "PropertyInspectorPath": "PropertyInspector/PluginActionPI.html"
     }
   ],
   "Author": "dataisinteresting",
   "Name": "com.dataisinteresting.togglecameras",
-  "Description": "Disables or enables all detected camera devices.",
-  "Icon": "Images/on",
+  "Description": "Toggles the state of all detected camera devices.",
+  "Icon": "Images/plugin",
   "URL": "https://dataisinteresting.github.com",
   "Version": "1.0",
   "CodePath": "com.dataisinteresting.togglecameras",
   "Category": "Toggle Cameras",
-  "CategoryIcon": "Images/on",
+  "CategoryIcon": "Images/togglecategory",
   "OS": [
     {
       "Platform": "windows",
