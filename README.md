@@ -1,6 +1,6 @@
 # Toggle Cameras
 
-
+![gallery-1](com.dataisinteresting.togglecameras/previews/gallery-1.png?raw=true)
 
 This free Stream Deck plugin for Windows is designed to enhance your privacy by providing a convenient way to enable or disable all camera devices connected to your system with just a press of a button. Inspired by my own experiences with work environments where protecting against unwanted surveillance was top of mind, there are a number of conceivable use cases for such a tool, including:
 
