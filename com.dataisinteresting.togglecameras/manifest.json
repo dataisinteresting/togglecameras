@@ -21,7 +21,7 @@
   "Description": "Toggles the state of all camera devices detected in Windows.",
   "Icon": "Images/plugin",
   "URL": "https://github.com/dataisinteresting/togglecameras",
-  "Version": "1.0",
+  "Version": "1.0.0",
   "CodePath": "togglecameras.exe",
   "Category": "Toggle Cameras",
   "CategoryIcon": "Images/togglecategory",
