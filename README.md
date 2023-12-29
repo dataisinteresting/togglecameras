@@ -4,10 +4,10 @@
 
 This free Stream Deck plugin for Windows is designed to enhance your privacy by providing a convenient way to enable or disable all camera devices connected to your system with just a press of a button. Inspired by my own experiences with work environments where protecting against unwanted surveillance was top of mind, there are a number of conceivable use cases for such a tool, including:
 
-* Mitigation of users' privacy concerns surrounding their cameras
+* Mitigation of users' privacy concerns surrounding their cameras.
 * Compliance of professionals with the policies of secure work environments.
-* Disabling of cameras as part of IT troubleshooting or software testing
-* Protection of streamers against accidental broadcasts
+* Disabling of cameras as part of IT troubleshooting or software testing.
+* Protection of streamers against accidental broadcasts.
 
 This is the first Stream Deck plugin I have developed. I chose to use C# for this project because it appeared to provide a suitable level of access to methods of device enumeration and control that are exposed by Windows while also being quite accessible to someone who had not developed for Windows before. Eventually, I would like to extend this project to include the control of audiovisual devices in general. Therefore, I may consider migrating this project to C++ as it seems to offer broader access to the Windows API. I welcome any constructive contributions.
 
