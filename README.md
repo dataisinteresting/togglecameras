@@ -19,7 +19,7 @@ This is the first Stream Deck plugin I have developed. I chose to use C# for thi
 * The plugin will not toggle cameras when any are in use by a process. 
 
 ## Installation:
-Download the plugin from the [Elgato Marketplace](https://marketplace.elgato.com/) and follow the on-screen prompts, or download from the [GitHub repository](https://github.com/dataisinteresting/togglecameras).
+Download the plugin from the [Elgato Marketplace](https://marketplace.elgato.com/) and follow the on-screen prompts, or download from the 'releases' section of the [GitHub repository](https://github.com/dataisinteresting/togglecameras).
 
 
 ## Usage:
