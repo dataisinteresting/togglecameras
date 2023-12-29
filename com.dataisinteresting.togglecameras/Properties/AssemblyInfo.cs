@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("com.dataisinteresting.togglecameras")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Toggle Cameras")]
+[assembly: AssemblyDescription("A plugin for Elgato's Stream Deck Software enabling users to enable or disable all detected camera devices with a single button press.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("com.dataisinteresting.togglecameras")]
+[assembly: AssemblyProduct("Toggle Cameras")]
 [assembly: AssemblyCopyright("Copyright © dataisinteresting 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
