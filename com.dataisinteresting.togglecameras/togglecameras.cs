@@ -12,14 +12,19 @@ using System.Threading.Tasks;
 
 namespace com.dataisinteresting.togglecameras
 {
-    [PluginActionId("com.dataisinteresting.togglecameras.disablecameras")]
-    public class DisableCameras : PluginBase
+    [PluginActionId("com.dataisinteresting.togglecameras.togglecameras")]
+    public class togglecameras : PluginBase
     {
         private class PluginSettings
         {
+
+            [JsonProperty(PropertyName = "camerasEnabled")]
+            public bool camerasEnabled { get; set; } = true; // default, assumes that at least one camera is enabled
+
             public static PluginSettings CreateDefaultSettings()
             {
                 PluginSettings instance = new PluginSettings();
+                instance.camerasEnabled = true;
                 instance.OutputFileName = String.Empty;
                 instance.InputString = String.Empty;
                 return instance;
@@ -39,7 +44,7 @@ namespace com.dataisinteresting.togglecameras
         #endregion
 
         
-    public DisableCameras(SDConnection connection, InitialPayload payload) : base(connection, payload)
+    public togglecameras(SDConnection connection, InitialPayload payload) : base(connection, payload)
     {
         if (payload.Settings == null || payload.Settings.Count == 0)
         {
@@ -57,28 +62,51 @@ namespace com.dataisinteresting.togglecameras
         Logger.Instance.LogMessage(TracingLevel.INFO, $"Destructor called");
     }
 
-    public override async void KeyPressed(KeyPayload payload)
+    // Method to toggle camera state
+    private void ToggleCamerasState()
+    {
+        if (settings.camerasEnabled)
+        {
+            DisableAllCameras();
+            settings.camerasEnabled = false;
+        }
+        else
+        {
+            EnableAllCameras();
+            settings.camerasEnabled = true;
+        }
+        SaveSettings();
+    }
+        public override async void KeyPressed(KeyPayload payload)
     {
         Logger.Instance.LogMessage(TracingLevel.INFO, "Key Pressed");
 
         try
         {
-            DisableAllCameras();
+            ToggleCamerasState();
+
+            // Show a checkmark icon to user to indicate that the action was successful
+            await Connection.ShowOk();
         }
 
         catch (ManagementException e)
         {
-            HandleException(e);
 
             // Show alert on Stream Deck to indicate error
             await Connection.ShowAlert();
+
+            HandleException(e);
+
+
         }
         catch (Exception e)
         {
-            HandleException(e);
 
             // Show alert on Stream Deck to indicate error
             await Connection.ShowAlert();
+
+            HandleException(e);
+
         }
     }
 
@@ -120,30 +148,57 @@ namespace com.dataisinteresting.togglecameras
         }
         
     }
-        private void HandleException(ManagementException e)
+
+    private void EnableAllCameras()
+    {
+        // Enable camera devices
+        ManagementObjectSearcher searcher =
+            new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_PnPEntity WHERE PNPClass='Camera' OR PNPClass='Image'");
+
+        foreach (ManagementObject queryObj in searcher.Get())
         {
-            Logger.Instance.LogMessage(TracingLevel.ERROR, $"ManagementException: {e.Message}, ErrorCode: {e.ErrorCode}");
-            Logger.Instance.LogMessage(TracingLevel.ERROR, $"Stack Trace: {e.StackTrace}");
+            Logger.Instance.LogMessage(TracingLevel.INFO, string.Format("Enabling: {0}", queryObj["Name"]));
 
-            if (e.InnerException != null)
+            // Apply the 'Enable' method
+            ManagementBaseObject outParams = queryObj.InvokeMethod("Enable", null, null);
+
+            // Check the return value to verify whether it was successful
+            uint returnValue = (uint)outParams["ReturnValue"];
+            if (returnValue == 0)
             {
-                Logger.Instance.LogMessage(TracingLevel.ERROR, $"Inner Exception: {e.InnerException.Message}");
+                Logger.Instance.LogMessage(TracingLevel.INFO, string.Format("Successfully enabled {0}", queryObj["Name"]));
             }
-
+            else
+            {
+                Logger.Instance.LogMessage(TracingLevel.INFO, string.Format("Failed to enable {0}. Error code: {1}", queryObj["Name"]));
+            }
         }
 
-        private void HandleException(Exception e)
+    }
+    private void HandleException(ManagementException e)
+    {
+        Logger.Instance.LogMessage(TracingLevel.ERROR, $"ManagementException: {e.Message}, ErrorCode: {e.ErrorCode}");
+        Logger.Instance.LogMessage(TracingLevel.ERROR, $"Stack Trace: {e.StackTrace}");
+
+        if (e.InnerException != null)
         {
-            // Handle other exceptions here
-            Logger.Instance.LogMessage(TracingLevel.ERROR, $"Generic Exception: {e.Message}");
-            Logger.Instance.LogMessage(TracingLevel.ERROR, $"Stack Trace: {e.StackTrace}");
-
-            if (e.InnerException != null)
-            {
-                Logger.Instance.LogMessage(TracingLevel.ERROR, $"Inner Exception: {e.InnerException.Message}");
-            }
-
+            Logger.Instance.LogMessage(TracingLevel.ERROR, $"Inner Exception: {e.InnerException.Message}");
         }
+
+    }
+
+    private void HandleException(Exception e)
+    {
+        // Handle other exceptions here
+        Logger.Instance.LogMessage(TracingLevel.ERROR, $"Generic Exception: {e.Message}");
+        Logger.Instance.LogMessage(TracingLevel.ERROR, $"Stack Trace: {e.StackTrace}");
+
+        if (e.InnerException != null)
+        {
+            Logger.Instance.LogMessage(TracingLevel.ERROR, $"Inner Exception: {e.InnerException.Message}");
+        }
+
+    }
 
         private Task SaveSettings()
     {
