@@ -7,7 +7,7 @@
     <ProjectGuid>{4635D874-69C0-4010-BE46-77EF92EB1553}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>com.dataisinteresting.togglecameras</RootNamespace>
-    <AssemblyName>com.dataisinteresting.togglecameras</AssemblyName>
+    <AssemblyName>togglecameras</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -27,7 +27,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\com.dataisinteresting.togglecameras.sdPlugin\</OutputPath>
+    <OutputPath>bin\Release\togglecameras.sdPlugin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -96,6 +96,9 @@
     <Content Include="Images\togglecategory.png" />
     <Content Include="Images\togglekey%402x.png" />
     <Content Include="Images\togglekey.png" />
+    <Content Include="previews\gallery-1.png" />
+    <Content Include="previews\gallery-2.png" />
+    <Content Include="previews\gallery-3.mp4" />
     <Content Include="PropertyInspector\PluginActionPI.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -103,5 +106,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,18 +11,18 @@
         }
       ],
       "SupportedInMultiActions": false,
-      "Tooltip": "Toggles the state of all detected camera devices.",
+      "Tooltip": "Toggles the state of all camera devices detected in Windows.",
       "UUID": "com.dataisinteresting.togglecameras.togglecameras",
       "PropertyInspectorPath": "PropertyInspector/PluginActionPI.html"
     }
   ],
   "Author": "dataisinteresting",
-  "Name": "com.dataisinteresting.togglecameras",
-  "Description": "Toggles the state of all detected camera devices.",
+  "Name": "Toggle Cameras",
+  "Description": "Toggles the state of all camera devices detected in Windows.",
   "Icon": "Images/plugin",
-  "URL": "https://dataisinteresting.github.com",
+  "URL": "https://github.com/dataisinteresting/togglecameras",
   "Version": "1.0",
-  "CodePath": "com.dataisinteresting.togglecameras",
+  "CodePath": "togglecameras.exe",
   "Category": "Toggle Cameras",
   "CategoryIcon": "Images/togglecategory",
   "OS": [
