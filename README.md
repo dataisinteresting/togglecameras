@@ -19,7 +19,7 @@ This is the first Stream Deck plugin I have developed. I chose to use C# for thi
 * The plugin will not toggle cameras when any are in use by a process. 
 
 ## Installation:
-Download the plugin's .sdPlugin file from the 'releases' section of the [GitHub repository](https://github.com/dataisinteresting/togglecameras). Run the file to install the plugin.
+Download the *.streamdeckPlugin* file from the 'releases' section of the [GitHub repository](https://github.com/dataisinteresting/togglecameras). Run the file to install the plugin.
 
 
 ## Usage:
